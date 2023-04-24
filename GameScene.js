@@ -115,7 +115,10 @@ export class GameScene extends Phaser.Scene {
     this.load.image('town', 'https://labs.phaser.io/assets/skies/sky4.png'); // Placeholder image for the town
     this.load.image('npc', 'https://labs.phaser.io/assets/sprites/cokecan.png'); // Placeholder image for the NPC
 
-    this.load.image('fitideas', './asd/assets_local/fit.png'); // Placeholder image for the NPC
+    this.load.image(
+      'fitideas',
+      'https://raw.githubusercontent.com/guillermodulcey/game-resume/main/assets_local/fit.png'
+    ); // Placeholder image for the NPC
 
     this.load.spritesheet(
       'character',
