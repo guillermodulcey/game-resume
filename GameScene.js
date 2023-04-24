@@ -120,6 +120,11 @@ export class GameScene extends Phaser.Scene {
       'https://raw.githubusercontent.com/guillermodulcey/game-resume/main/assets_local/fit.png'
     ); // Placeholder image for the NPC
 
+    this.load.image(
+      'open',
+      'https://raw.githubusercontent.com/guillermodulcey/game-resume/main/assets_local/open.png'
+    ); // Placeholder image for the NPC
+
     this.load.spritesheet(
       'character',
       'https://labs.phaser.io/assets/sprites/dude.png',
@@ -145,6 +150,8 @@ export class GameScene extends Phaser.Scene {
     this.npc = new Npc(this, 600, 300, 'npc');
 
     this.npc_fit = new Npc(this, 300, 300, 'fitideas');
+
+    this.npc_fit = new Npc(this, 500, 300, 'open');
 
     this.cursors = this.input.keyboard.createCursorKeys();
   }
