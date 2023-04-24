@@ -149,9 +149,9 @@ export class GameScene extends Phaser.Scene {
 
     this.npc = new Npc(this, 600, 300, 'npc');
 
-    this.npc_fit = new Npc(this, 300, 300, 'fitideas');
+    this.npc_fit = new Npc(this, 100, 300, 'fitideas');
 
-    this.npc_fit = new Npc(this, 500, 300, 'open');
+    this.npc_fit = new Npc(this, 300, 300, 'open');
 
     this.cursors = this.input.keyboard.createCursorKeys();
   }
