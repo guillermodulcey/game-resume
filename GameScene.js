@@ -129,6 +129,11 @@ export class GameScene extends Phaser.Scene {
       'https://raw.githubusercontent.com/guillermodulcey/game-resume/main/assets_local/turing.png'
     ); // Placeholder image for the NPC
 
+    this.load.image(
+      'turing',
+      'https://raw.githubusercontent.com/guillermodulcey/game-resume/main/assets_local/turing.png'
+    ); // Placeholder image for the NPC
+
     this.load.spritesheet(
       'character',
       'https://labs.phaser.io/assets/sprites/dude.png',
@@ -149,6 +154,11 @@ export class GameScene extends Phaser.Scene {
     });
 
     this.messageText_open = this.add.text(300, 100, 'Mar 2018 - Jul 2019', {
+      fontSize: '32px',
+      fill: '#000',
+    });
+
+    this.messageText_cinv = this.add.text(300, 100, 'Sep 2019 - Sep 2021', {
       fontSize: '32px',
       fill: '#000',
     });
