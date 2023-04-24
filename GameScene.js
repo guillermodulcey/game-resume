@@ -113,7 +113,6 @@ export class GameScene extends Phaser.Scene {
   preload() {
     // this.load.setBaseURL('https://labs.phaser.io');
     this.load.image('town', 'https://labs.phaser.io/assets/skies/sky4.png'); // Placeholder image for the town
-    this.load.image('npc', 'https://labs.phaser.io/assets/sprites/cokecan.png'); // Placeholder image for the NPC
 
     this.load.image(
       'fitideas',
@@ -123,6 +122,16 @@ export class GameScene extends Phaser.Scene {
     this.load.image(
       'open',
       'https://raw.githubusercontent.com/guillermodulcey/game-resume/main/assets_local/open.png'
+    ); // Placeholder image for the NPC
+
+    this.load.image(
+      'turing',
+      'https://raw.githubusercontent.com/guillermodulcey/game-resume/main/assets_local/turing.png'
+    ); // Placeholder image for the NPC
+
+    this.load.image(
+      'turing',
+      'https://raw.githubusercontent.com/guillermodulcey/game-resume/main/assets_local/turing.png'
     ); // Placeholder image for the NPC
 
     this.load.spritesheet(
@@ -138,20 +147,35 @@ export class GameScene extends Phaser.Scene {
   create() {
     // Create the town background
     this.add.image(400, 300, 'town');
-    this.messageText = this.add.text(300, 100, 'Hello, player!', {
+
+    this.messageText_fit = this.add.text(300, 100, 'Feb 2022 - Aug 2022', {
       fontSize: '32px',
       fill: '#000',
     });
-    this.messageText.visible = true;
+
+    this.messageText_open = this.add.text(300, 100, 'Mar 2018 - Jul 2019', {
+      fontSize: '32px',
+      fill: '#000',
+    });
+
+    this.messageText_cinv = this.add.text(300, 100, 'Sep 2019 - Sep 2021', {
+      fontSize: '32px',
+      fill: '#000',
+    });
+
+    this.messageText_turing = this.add.text(300, 100, 'Ago 2022 - Currently', {
+      fontSize: '32px',
+      fill: '#000',
+    });
 
     this.player = new Player(this, 100, 450, 'character');
     this.player.setDepth(3);
 
-    this.npc = new Npc(this, 600, 300, 'npc');
+    this.npc_open = new Npc(this, 100, 300, 'open');
 
-    this.npc_fit = new Npc(this, 100, 300, 'fitideas');
+    this.npc_fit = new Npc(this, 400, 300, 'fitideas');
 
-    this.npc_fit = new Npc(this, 300, 300, 'open');
+    this.npc_turing = new Npc(this, 700, 300, 'turing');
 
     this.cursors = this.input.keyboard.createCursorKeys();
   }
@@ -160,16 +184,33 @@ export class GameScene extends Phaser.Scene {
     this.player.update(this.cursors);
 
     // Code snippet to be placed inside the 'update' function
-    // Calculate the distance between the player and the NPC
-    let distance = Phaser.Math.Distance.Between(
+
+    let distance_fit = Phaser.Math.Distance.Between(
       this.player.x,
       this.player.y,
-      this.npc.x,
-      this.npc.y
+      this.npc_fit.x,
+      this.npc_fit.y
+    );
+
+    let distance_open = Phaser.Math.Distance.Between(
+      this.player.x,
+      this.player.y,
+      this.npc_open.x,
+      this.npc_open.y
+    );
+
+    let distance_turing = Phaser.Math.Distance.Between(
+      this.player.x,
+      this.player.y,
+      this.npc_turing.x,
+      this.npc_turing.y
     );
 
     // Determine whether the player is close enough to the NPC
     const threshold = 100; // Set an arbitrary threshold for "close enough"
-    this.messageText.visible = distance <= threshold;
+
+    this.messageText_fit.visible = distance_fit <= threshold;
+    this.messageText_open.visible = distance_open <= threshold;
+    this.messageText_turing.visible = distance_turing <= threshold;
   }
 }
